@@ -7,12 +7,11 @@ export const metadata = createMetadata({ title: "Journal", path: "/journal" });
 
 export default function JournalPage() {
   return (
-    <div className="flex-1 pb-20">
-      <SectionHeading kicker="System Logs" title="Recovery Data & Protocols" copy="Technical guides, material analysis, and self-care procedures for optimal human function." />
-      
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-12">
+    <main className="flex-1 px-5 py-20 lg:px-8">
+      <SectionHeading kicker="Journal" title="Wellness guides, ingredient education, and self-care rituals" />
+      <div className="mx-auto mt-12 grid max-w-7xl gap-5 md:grid-cols-3">
         {journalArticles.map((article) => <JournalCard key={article.id} article={article} />)}
       </div>
-    </div>
+    </main>
   );
 }

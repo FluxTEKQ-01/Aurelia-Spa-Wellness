@@ -1,18 +1,16 @@
 import type { Metadata } from "next";
-import { Fraunces, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import { Fraunces, Geist, Geist_Mono } from "next/font/google";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import "./globals.css";
 
-const ibmPlexSans = IBM_Plex_Sans({
+const geistSans = Geist({
   variable: "--font-geist-sans",
-  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
 });
 
-const ibmPlexMono = IBM_Plex_Mono({
+const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
-  weight: ["400", "600"],
   subsets: ["latin"],
 });
 
@@ -22,8 +20,9 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Aurelia Grove | Blueprint Desk",
-  description: "A dark-first founder war-room and tactical planning surface.",
+  title: "Aurelia Grove Spa | Botanical Spa & Wellness",
+  description:
+    "A premium botanical spa and wellness destination for restorative treatments, ritual skincare, and quiet luxury.",
 };
 
 export default function RootLayout({
@@ -34,17 +33,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${ibmPlexSans.variable} ${ibmPlexMono.variable} ${fraunces.variable} h-full antialiased dark`}
+      className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-background text-foreground planner-bg">
-        <div className="flex min-h-screen flex-col lg:flex-row">
+      <body className="min-h-full bg-background text-foreground">
+        <div className="spa-bg flex min-h-screen flex-col">
           <SiteHeader />
-          <main className="flex-1 overflow-hidden">
-            <div className="container mx-auto px-4 py-8 lg:py-12">
-              {children}
-            </div>
-            <SiteFooter />
-          </main>
+          {children}
+          <SiteFooter />
         </div>
       </body>
     </html>
