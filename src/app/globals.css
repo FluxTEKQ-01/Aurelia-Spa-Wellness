@@ -1,26 +1,86 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0d1711;
+  --foreground: #f5efe3;
+  --card: rgba(245, 239, 227, 0.08);
+  --muted: rgba(245, 239, 227, 0.68);
+  --border: rgba(245, 239, 227, 0.16);
+  --forest: #122319;
+  --moss: #6f8260;
+  --stone: #cbbf9d;
+  --clay: #b47b5b;
+  --gold: #d2ad65;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-forest: var(--forest);
+  --color-moss: var(--moss);
+  --color-stone: var(--stone);
+  --color-clay: var(--clay);
+  --color-gold: var(--gold);
   --font-sans: var(--font-geist-sans);
+  --font-serif: var(--font-fraunces);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+a,
+button,
+input,
+textarea {
+  outline-color: var(--gold);
+}
+
+.spa-bg {
+  background:
+    radial-gradient(circle at 15% 10%, rgba(111, 130, 96, 0.28), transparent 28rem),
+    radial-gradient(circle at 85% 5%, rgba(210, 173, 101, 0.18), transparent 24rem),
+    linear-gradient(135deg, rgba(13, 23, 17, 0.96), rgba(18, 35, 25, 0.96)),
+    repeating-linear-gradient(90deg, rgba(245, 239, 227, 0.04) 0 1px, transparent 1px 80px);
+}
+
+.botanical-card {
+  border: 1px solid var(--border);
+  background: linear-gradient(145deg, rgba(245, 239, 227, 0.1), rgba(245, 239, 227, 0.035));
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(18px);
+}
+
+.section-kicker {
+  color: var(--gold);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.forest-button {
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--gold), #eee0ac 48%, var(--moss));
+  color: #111b13;
+  font-weight: 700;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.forest-button:hover {
+  box-shadow: 0 18px 45px rgba(210, 173, 101, 0.24);
+  transform: translateY(-1px);
+}
+
+.leaf-orb {
+  background:
+    radial-gradient(circle at 30% 20%, rgba(245, 239, 227, 0.32), transparent 20%),
+    linear-gradient(145deg, rgba(111, 130, 96, 0.7), rgba(18, 35, 25, 0.9));
+  border-radius: 48% 52% 42% 58%;
 }
