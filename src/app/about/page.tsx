@@ -4,21 +4,30 @@ export const metadata = createMetadata({ title: "About", path: "/about" });
 
 export default function AboutPage() {
   return (
-    <main className="mx-auto max-w-7xl flex-1 px-5 py-20 lg:px-8">
-      <p className="section-kicker">Our philosophy</p>
-      <h1 className="mt-5 max-w-4xl font-serif text-6xl text-stone md:text-8xl">A spa designed like a private forest retreat.</h1>
-      <div className="mt-14 grid gap-6 md:grid-cols-3">
+    <div className="flex-1 pb-20">
+      <div className="flex items-center gap-4 mb-6">
+        <div className="h-px w-12 bg-accent" />
+        <p className="micro-label text-accent">System Philosophy</p>
+      </div>
+      <h1 className="font-display text-5xl md:text-7xl font-bold tracking-tighter text-foreground mb-16 max-w-4xl">
+        Engineered like a tactical planning surface for physiological recovery.
+      </h1>
+      
+      <div className="grid gap-6 md:grid-cols-3">
         {[
-          ["Mission", "To create restorative rituals that feel cinematic, grounded, and safe for modern nervous systems."],
-          ["Sustainability", "We prioritize botanical suppliers, refill-minded rituals, durable materials, and low-waste service design."],
-          ["Care", "Every visit begins with listening: skin condition, pressure preferences, aromatics, and the pace you need."],
+          ["Objective", "To deploy restorative protocols that feel precise, grounded, and structurally sound for modern neural loads."],
+          ["Architecture", "We prioritize bio-compatible suppliers, refill-optimized systems, durable tactile materials, and low-friction service deployment."],
+          ["Diagnostics", "Every session initiates with data collection: current load, pressure metrics, aromatic compatibility, and required recovery pacing."],
         ].map(([title, copy]) => (
-          <section key={title} className="botanical-card rounded-[2rem] p-7">
-            <h2 className="font-serif text-3xl text-stone">{title}</h2>
-            <p className="mt-4 leading-7 text-muted">{copy}</p>
+          <section key={title} className="glass-panel p-8 group">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-1.5 h-1.5 rounded-full bg-primary group-hover:animate-pulse" />
+              <h2 className="font-display text-2xl font-bold text-foreground">{title}</h2>
+            </div>
+            <p className="leading-relaxed text-muted-foreground">{copy}</p>
           </section>
         ))}
       </div>
-    </main>
+    </div>
   );
 }

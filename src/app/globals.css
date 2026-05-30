@@ -1,86 +1,119 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0d1711;
-  --foreground: #f5efe3;
-  --card: rgba(245, 239, 227, 0.08);
-  --muted: rgba(245, 239, 227, 0.68);
-  --border: rgba(245, 239, 227, 0.16);
-  --forest: #122319;
-  --moss: #6f8260;
-  --stone: #cbbf9d;
-  --clay: #b47b5b;
-  --gold: #d2ad65;
+  --background: oklch(0.15 0.038 252);
+  --foreground: oklch(0.94 0.034 88);
+  --card: oklch(0.205 0.044 252 / 0.78);
+  --primary: oklch(0.78 0.16 61);
+  --accent: oklch(0.77 0.134 178);
+  --secondary: oklch(0.25 0.06 244 / 0.74);
+  --muted: oklch(0.26 0.052 252 / 0.64);
+  --muted-foreground: oklch(0.73 0.042 88);
+  --border: oklch(0.98 0.02 88 / 0.14);
+  --ring: oklch(0.8 0.15 178);
+  --destructive: oklch(0.68 0.21 31);
+  
+  /* Additional Chart Colors based on DESIGN.md (amber, teal, violet, coral, green) */
+  --chart-1: oklch(0.78 0.16 61);
+  --chart-2: oklch(0.77 0.134 178);
+  --chart-3: oklch(0.6 0.15 300);
+  --chart-4: oklch(0.65 0.2 20);
+  --chart-5: oklch(0.7 0.15 150);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+  --color-secondary: var(--secondary);
   --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
-  --color-forest: var(--forest);
-  --color-moss: var(--moss);
-  --color-stone: var(--stone);
-  --color-clay: var(--clay);
-  --color-gold: var(--gold);
-  --font-sans: var(--font-geist-sans);
-  --font-serif: var(--font-fraunces);
-  --font-mono: var(--font-geist-mono);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+
+  --font-sans: "IBM Plex Sans", var(--font-geist-sans), Arial, sans-serif;
+  --font-serif: "Fraunces", var(--font-fraunces), serif;
+  --font-mono: "IBM Plex Mono", var(--font-geist-mono), monospace;
+  --font-display: "Fraunces", var(--font-fraunces), serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
 }
 
 a,
 button,
 input,
 textarea {
-  outline-color: var(--gold);
+  outline-color: var(--ring);
 }
 
-.spa-bg {
+/* Core Utilities */
+.planner-bg {
   background:
-    radial-gradient(circle at 15% 10%, rgba(111, 130, 96, 0.28), transparent 28rem),
-    radial-gradient(circle at 85% 5%, rgba(210, 173, 101, 0.18), transparent 24rem),
-    linear-gradient(135deg, rgba(13, 23, 17, 0.96), rgba(18, 35, 25, 0.96)),
-    repeating-linear-gradient(90deg, rgba(245, 239, 227, 0.04) 0 1px, transparent 1px 80px);
+    radial-gradient(circle at 80% 20%, oklch(0.78 0.16 61 / 0.08), transparent 35rem),
+    radial-gradient(circle at 20% 80%, oklch(0.77 0.134 178 / 0.1), transparent 30rem),
+    radial-gradient(circle at 50% 50%, oklch(0.6 0.15 300 / 0.05), transparent 40rem),
+    linear-gradient(180deg, rgba(10, 10, 15, 0.5), rgba(15, 15, 20, 0.8)),
+    repeating-linear-gradient(90deg, oklch(0.98 0.02 88 / 0.03) 0 1px, transparent 1px 100px),
+    repeating-linear-gradient(180deg, oklch(0.98 0.02 88 / 0.03) 0 1px, transparent 1px 100px),
+    var(--background);
 }
 
-.botanical-card {
+.glass-panel {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 100%), var(--card);
   border: 1px solid var(--border);
-  background: linear-gradient(145deg, rgba(245, 239, 227, 0.1), rgba(245, 239, 227, 0.035));
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
-  backdrop-filter: blur(18px);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 20px 40px rgba(0,0,0,0.4);
+  backdrop-filter: blur(16px);
 }
 
-.section-kicker {
-  color: var(--gold);
-  font-family: var(--font-geist-mono), monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+.paper-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+  backdrop-filter: blur(12px);
+  border-radius: 1rem;
 }
 
-.forest-button {
-  border-radius: 999px;
-  background: linear-gradient(135deg, var(--gold), #eee0ac 48%, var(--moss));
-  color: #111b13;
-  font-weight: 700;
-  transition: transform 180ms ease, box-shadow 180ms ease;
-}
-
-.forest-button:hover {
-  box-shadow: 0 18px 45px rgba(210, 173, 101, 0.24);
-  transform: translateY(-1px);
-}
-
-.leaf-orb {
+.blueprint-surface {
   background:
-    radial-gradient(circle at 30% 20%, rgba(245, 239, 227, 0.32), transparent 20%),
-    linear-gradient(145deg, rgba(111, 130, 96, 0.7), rgba(18, 35, 25, 0.9));
-  border-radius: 48% 52% 42% 58%;
+    repeating-linear-gradient(90deg, oklch(0.98 0.02 88 / 0.05) 0 1px, transparent 1px 20px),
+    repeating-linear-gradient(180deg, oklch(0.98 0.02 88 / 0.05) 0 1px, transparent 1px 20px),
+    oklch(0.18 0.04 252);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+}
+
+.command-strip {
+  background: linear-gradient(90deg, var(--primary), var(--accent), oklch(0.6 0.15 300));
+  background-size: 200% auto;
+  color: #000;
+  transition: all 0.3s ease;
+}
+
+.command-strip:hover {
+  background-position: right center;
+}
+
+.micro-label {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.75rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* Base Interactions */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.4);
 }

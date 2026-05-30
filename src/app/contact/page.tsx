@@ -4,29 +4,41 @@ export const metadata = createMetadata({ title: "Contact", path: "/contact" });
 
 export default function ContactPage() {
   return (
-    <main className="mx-auto grid max-w-7xl flex-1 gap-10 px-5 py-20 md:grid-cols-[0.8fr_1.2fr] lg:px-8">
+    <div className="grid gap-16 md:grid-cols-[1fr_1.2fr] pb-20">
       <section>
-        <p className="section-kicker">Consultation request</p>
-        <h1 className="mt-5 font-serif text-6xl text-stone md:text-8xl">Begin with a slower question.</h1>
-        <div className="mt-10 space-y-4 text-muted">
-          <p>Hours: Tuesday to Sunday, 9:00 AM - 7:00 PM</p>
-          <p>Location map placeholder until the real address is known.</p>
-          <p>For health concerns, please consult a licensed medical professional.</p>
+        <div className="flex items-center gap-4 mb-6">
+          <div className="h-px w-12 bg-primary" />
+          <p className="micro-label text-primary">Protocol Initialization</p>
+        </div>
+        <h1 className="font-display text-5xl md:text-6xl font-bold tracking-tighter text-foreground mb-8">
+          Request system access.
+        </h1>
+        <div className="space-y-6 text-muted-foreground bg-black/20 p-6 rounded-2xl border border-border/50 font-mono text-sm">
+          <p className="flex justify-between"><span className="text-primary">UPTIME:</span> TUE-SUN [0900 - 1900]</p>
+          <p className="flex justify-between"><span className="text-primary">COORDS:</span> // PENDING_DECRYPTION</p>
+          <p className="flex justify-between text-xs text-muted"><span className="text-destructive">WARNING:</span> FOR MEDICAL EMERGENCIES, CONSULT LICENSED PERSONNEL.</p>
         </div>
       </section>
-      <form className="botanical-card space-y-5 rounded-[2rem] p-7">
-        {["Name", "Email", "Preferred ritual"].map((label) => (
-          <label key={label} className="block text-sm text-muted">
-            <span>{label}</span>
-            <input className="mt-2 w-full rounded-2xl border border-border bg-background/45 p-4 text-foreground" />
+      
+      <form className="glass-panel space-y-6 p-8">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
+          <h2 className="font-display text-2xl font-bold text-foreground">Communication Link</h2>
+        </div>
+        {["Operator Name", "Return Channel (Email)", "Requested Module"].map((label) => (
+          <label key={label} className="block text-sm font-medium text-muted-foreground">
+            <span className="micro-label mb-2 block">{label}</span>
+            <input className="w-full rounded-xl border border-border bg-black/40 p-4 text-foreground shadow-inner focus:outline-none focus:ring-[3px] focus:ring-ring/50 transition-all" />
           </label>
         ))}
-        <label className="block text-sm text-muted">
-          <span>What would you like support with?</span>
-          <textarea className="mt-2 min-h-36 w-full rounded-2xl border border-border bg-background/45 p-4 text-foreground" />
+        <label className="block text-sm font-medium text-muted-foreground">
+          <span className="micro-label mb-2 block">Diagnostic Notes</span>
+          <textarea className="min-h-36 w-full rounded-xl border border-border bg-black/40 p-4 text-foreground shadow-inner focus:outline-none focus:ring-[3px] focus:ring-ring/50 transition-all resize-y" />
         </label>
-        <button type="button" className="forest-button px-7 py-4">Request consultation</button>
+        <button type="button" className="command-strip w-full py-4 rounded-xl font-bold hover-lift">
+          TRANSMIT_REQUEST
+        </button>
       </form>
-    </main>
+    </div>
   );
 }

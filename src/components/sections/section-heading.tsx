@@ -1,9 +1,12 @@
 export function SectionHeading({ kicker, title, copy }: { kicker: string; title: string; copy?: string }) {
   return (
-    <div className="mx-auto max-w-3xl text-center">
-      <p className="section-kicker">{kicker}</p>
-      <h2 className="mt-4 font-serif text-4xl font-semibold tracking-tight text-stone md:text-6xl">{title}</h2>
-      {copy ? <p className="mt-5 text-lg leading-8 text-muted">{copy}</p> : null}
+    <div className="max-w-3xl mb-12">
+      <div className="flex items-center gap-4 mb-4">
+        <div className="h-px w-8 bg-primary/50" />
+        <p className="micro-label">{kicker}</p>
+      </div>
+      <h2 className="font-display text-4xl font-bold tracking-tighter text-foreground md:text-5xl">{title}</h2>
+      {copy ? <p className="mt-4 text-lg text-muted-foreground max-w-2xl">{copy}</p> : null}
     </div>
   );
 }

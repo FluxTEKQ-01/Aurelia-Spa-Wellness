@@ -7,14 +7,21 @@ export const metadata = createMetadata({ title: "Shop", path: "/shop" });
 
 export default function ShopPage() {
   return (
-    <main className="flex-1 px-5 py-20 lg:px-8">
-      <SectionHeading kicker="Ritual shop" title="Benefit-led botanical products" copy="A compact static catalog for skincare, body care, and aromatic rituals." />
-      <div className="mx-auto mt-12 flex max-w-7xl flex-wrap justify-center gap-3">
-        {productCategories.map((category) => <span key={category.id} className="rounded-full border border-border px-4 py-2 text-sm text-muted">{category.name}</span>)}
+    <div className="flex-1 pb-20">
+      <SectionHeading kicker="Inventory" title="Benefit-led formulations" copy="A curated selection of botanical compounds and elements engineered for physiological restoration." />
+      
+      <div className="flex flex-wrap gap-3 mb-12">
+        <span className="micro-label bg-primary/10 text-primary px-4 py-2 rounded-full border border-primary/20 cursor-pointer">ALL_ITEMS</span>
+        {productCategories.map((category) => (
+          <span key={category.id} className="micro-label text-muted-foreground px-4 py-2 rounded-full border border-border hover:bg-white/5 transition-colors cursor-pointer">
+            {category.name}
+          </span>
+        ))}
       </div>
-      <div className="mx-auto mt-12 grid max-w-7xl gap-5 md:grid-cols-2 lg:grid-cols-3">
+      
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {products.map((product) => <ProductCard key={product.id} product={product} />)}
       </div>
-    </main>
+    </div>
   );
 }
