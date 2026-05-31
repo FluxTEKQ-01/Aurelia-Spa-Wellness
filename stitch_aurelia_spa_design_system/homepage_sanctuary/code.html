@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aurelia Grove | Forest Hidden Luxury Spa</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&amp;family=Geist:wght@300;400;500&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-primary": "#735b24",
+                      "forest-deep": "#122319",
+                      "on-surface-variant": "#d0c5b5",
+                      "on-error-container": "#ffdad6",
+                      "tertiary": "#ffc5a6",
+                      "on-secondary": "#253519",
+                      "surface-bright": "#343b34",
+                      "surface-container": "#1a211b",
+                      "on-primary-fixed-variant": "#59430e",
+                      "on-error": "#690005",
+                      "error": "#ffb4ab",
+                      "surface-container-low": "#161d17",
+                      "on-secondary-fixed-variant": "#3a4c2e",
+                      "on-tertiary-fixed": "#331200",
+                      "on-tertiary-container": "#693c21",
+                      "on-primary-container": "#5a440e",
+                      "background": "#0e150f",
+                      "surface-tint": "#e3c381",
+                      "glass-border": "rgba(245, 239, 227, 0.16)",
+                      "tertiary-fixed": "#ffdbc9",
+                      "secondary-fixed": "#d4e9c1",
+                      "outline-variant": "#4d463a",
+                      "surface-container-high": "#242c25",
+                      "inverse-surface": "#dde5da",
+                      "secondary-container": "#3a4c2e",
+                      "error-container": "#93000a",
+                      "on-secondary-container": "#a7bb96",
+                      "inverse-on-surface": "#2b322b",
+                      "secondary": "#b8cda6",
+                      "primary-container": "#d1b272",
+                      "on-surface": "#dde5da",
+                      "surface-container-highest": "#2f372f",
+                      "on-tertiary": "#4d260c",
+                      "secondary-fixed-dim": "#b8cda6",
+                      "tertiary-fixed-dim": "#fab894",
+                      "primary-fixed": "#ffdf9e",
+                      "on-primary-fixed": "#261a00",
+                      "tertiary-container": "#e7a885",
+                      "outline": "#999081",
+                      "primary-fixed-dim": "#e3c381",
+                      "on-primary": "#3f2e00",
+                      "on-tertiary-fixed-variant": "#683b20",
+                      "surface-dim": "#0e150f",
+                      "surface-container-lowest": "#09100a",
+                      "on-secondary-fixed": "#101f07",
+                      "on-background": "#dde5da",
+                      "surface": "#0e150f",
+                      "primary": "#eecd8b",
+                      "alabaster": "#F5EFE3",
+                      "sandstone": "#CBBF9D",
+                      "glass-fill": "rgba(245, 239, 227, 0.08)",
+                      "surface-variant": "#2f372f"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "section-gap-sm": "80px",
+                      "section-gap-lg": "120px",
+                      "margin-desktop": "64px",
+                      "margin-mobile": "20px",
+                      "gutter": "24px",
+                      "unit": "4px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Fraunces"],
+                      "headline-lg-mobile": ["Fraunces"],
+                      "display-hero-mobile": ["Fraunces"],
+                      "label-mono": ["JetBrains Mono"],
+                      "headline-md": ["Fraunces"],
+                      "body-base": ["Geist"],
+                      "body-lg": ["Geist"],
+                      "display-hero": ["Fraunces"]
+              },
+              "fontSize": {
+                      "headline-lg": ["60px", {"lineHeight": "1.1", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+                      "display-hero-mobile": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                      "label-mono": ["12px", {"lineHeight": "16px", "letterSpacing": "0.2em", "fontWeight": "500"}],
+                      "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                      "body-base": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "body-lg": ["20px", {"lineHeight": "32px", "fontWeight": "400"}],
+                      "display-hero": ["96px", {"lineHeight": "1.05", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .glass-card {
+            background: rgba(245, 239, 227, 0.08);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(245, 239, 227, 0.16);
+        }
+        .primary-pill {
+            background: linear-gradient(135deg, #eecd8b 0%, #b8cda6 100%);
+            color: #0b120c;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+        }
+        .primary-pill:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px -5px rgba(238, 205, 139, 0.4);
+        }
+        .leaf-orb {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 100%;
+            filter: blur(120px);
+            z-index: 0;
+            pointer-events: none;
+        }
+        .hero-zoom {
+            animation: slowZoom 60s infinite alternate;
+        }
+        @keyframes slowZoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.15); }
+        }
+        body {
+            background-color: #0e150f;
+            color: #dde5da;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body class="font-body-base">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-glass-border">
+<nav class="flex justify-between items-center h-24 px-margin-desktop max-w-[1280px] mx-auto">
+<div class="font-headline-md text-headline-md text-primary tracking-tight">Aurelia Grove</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-on-surface font-semibold font-body-base text-body-base hover:text-on-surface transition-opacity duration-300" href="#">Rituals</a>
+<a class="text-on-surface-variant font-body-base text-body-base hover:text-on-surface transition-opacity duration-300" href="#">Shop</a>
+<a class="text-on-surface-variant font-body-base text-body-base hover:text-on-surface transition-opacity duration-300" href="#">Journal</a>
+<a class="text-on-surface-variant font-body-base text-body-base hover:text-on-surface transition-opacity duration-300" href="#">Contact</a>
+</div>
+<a class="hidden md:flex primary-pill px-8 py-3 rounded-full font-bold uppercase tracking-widest text-xs" href="#">
+                Book a Ritual
+            </a>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="" class="w-full h-full object-cover hero-zoom brightness-[0.6]" src="https://lh3.googleusercontent.com/aida/ADBb0uidtTj7WlTmSdWJfzrO8oWwxA0SHk0t4MG5D0XuytaUNaKJu4GtgsrGOW5X7jDs1L1ffbXMEICEs_kwJOjs-bi3uh5qelxX5EukCnb5K-j3KJPKpS0ZTtpS4iKoetUvRhJJqEvP4L5h9GJ2XcetPQ-KdMmtu3gefkXdfKILT3TqfpZrFGs-vWzMR9ApeS9KnS7Kt5GOY4IO5WNj9sJJXlON-PWjhvEz5phGXlXfS1PBTZALRFSU75Ucv4A"/>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background"></div>
+</div>
+<div class="relative z-10 text-center px-margin-mobile max-w-4xl mx-auto">
+<span class="font-label-mono text-label-mono text-primary mb-6 block">FOREST HIDDEN LUXURY SPA</span>
+<h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-8">Restore where the forest gets quiet.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-2xl mx-auto">
+                    Aurelia Grove blends therapeutic touch, botanical skincare, mineral body rituals, and grounded aromatics into a premium wellness sanctuary.
+                </p>
+<div class="flex flex-col md:flex-row items-center justify-center gap-6">
+<a class="primary-pill px-10 py-4 rounded-full font-bold text-lg w-full md:w-auto text-center" href="#">Explore treatments</a>
+<a class="glass-card px-10 py-4 rounded-full font-bold text-on-surface text-lg w-full md:w-auto text-center hover:bg-alabaster/10 transition-colors" href="#">Shop rituals</a>
+</div>
+</div>
+<div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce text-sandstone/50">
+<span class="material-symbols-outlined text-4xl">keyboard_arrow_down</span>
+</div>
+</section>
+<!-- Signature Ritual Section -->
+<section class="py-section-gap-lg px-margin-desktop max-w-[1280px] mx-auto relative">
+<div class="leaf-orb bg-primary/5 top-0 -left-64"></div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-5 z-10">
+<span class="font-label-mono text-label-mono text-primary mb-4 block">SIGNATURE RITUAL</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-md text-on-surface mb-6">Forest Reset Massage</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+                        Warm stones, hinoki aromatics, and intuitive pressure for deep restoration. A slow therapeutic massage customized to your nervous system.
+                    </p>
+<div class="flex items-center gap-8 mb-10">
+<div class="flex flex-col">
+<span class="font-label-mono text-[10px] text-sandstone uppercase">Duration</span>
+<span class="font-body-base text-on-surface">75 Minutes</span>
+</div>
+<div class="w-[1px] h-10 bg-glass-border"></div>
+<div class="flex flex-col">
+<span class="font-label-mono text-[10px] text-sandstone uppercase">Investment</span>
+<span class="font-body-base text-on-surface">From $165</span>
+</div>
+</div>
+<a class="inline-flex items-center gap-4 text-primary font-bold hover:gap-6 transition-all" href="#">
+                        Reserve this experience <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<div class="md:col-span-7 relative">
+<div class="aspect-[4/5] rounded-3xl overflow-hidden glass-card p-4">
+<img class="w-full h-full object-cover rounded-2xl grayscale-[0.2] hover:grayscale-0 transition-all duration-700" data-alt="A macro close-up of smooth, dark volcanic river stones placed on a person's back during a luxury spa treatment. Soft steam rises in a dim, forest-themed room with warm golden lighting. The aesthetic is sophisticated and cinematic, emphasizing deep greens, natural wood textures, and the quiet luxury of an atmospheric wellness retreat." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbQ484xEx8Xf3vNCZnGggT1Shy1D9VQSLaEJz7a2kYh_4HRRFd4tIRbO0cqaxDYwffymvzpjtGRGC95DubBsGM8lR9jYlabp6-BrsTbfs21arqG0l5wc3_8xccmOa2odUoaL97nHCAWgybI1ZA3whlCt8XuBeiDdogYrUsvi5bqNn8ZYMmjZeUsc6LuUpn0OEajfIVr2DHKuYORj9IW3o9-ZgzzHtLARPJORr6FIPrAMVleaeraBQ9cWcJKKT4Igxdx8sn_CDgihU"/>
+</div>
+<!-- Decorative Floating Card -->
+<div class="absolute -bottom-10 -left-10 glass-card p-8 rounded-2xl max-w-xs hidden lg:block">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">forest</span>
+<p class="font-body-base italic text-on-surface-variant">"The hinoki aroma immediately transports you to the deep woods. Pure stillness."</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Treatments Bento Grid -->
+<section class="py-section-gap-lg bg-surface-container-lowest">
+<div class="px-margin-desktop max-w-[1280px] mx-auto">
+<div class="mb-section-gap-sm text-center max-w-3xl mx-auto">
+<span class="font-label-mono text-label-mono text-primary mb-4 block">FEATURED TREATMENTS</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-md text-on-surface mb-6">Quiet, precise rituals for body and skin</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="glass-card rounded-3xl p-10 flex flex-col h-full group hover:bg-white/5 transition-all">
+<span class="font-label-mono text-xs text-sandstone mb-8">01 — FACIAL</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Botanical Recovery Facial</h3>
+<p class="font-body-base text-on-surface-variant mb-12 flex-grow">A cocooning facial using blue tansy, rose clay, and facial massage to restore visible calm and luminosity.</p>
+<div class="flex justify-between items-end">
+<div class="flex flex-col">
+<span class="text-sandstone font-label-mono text-[10px]">60 MIN</span>
+<span class="text-primary font-bold">$145</span>
+</div>
+<button class="w-12 h-12 rounded-full border border-glass-border flex items-center justify-center group-hover:bg-primary group-hover:text-forest-deep transition-all">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="glass-card rounded-3xl p-10 flex flex-col h-full group hover:bg-white/5 transition-all">
+<span class="font-label-mono text-xs text-sandstone mb-8">02 — BODY</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Mineral Body Wrap</h3>
+<p class="font-body-base text-on-surface-variant mb-12 flex-grow">A warm sea-kelp wrap, scalp massage, and botanical body cream ritual for full-body replenishment.</p>
+<div class="flex justify-between items-end">
+<div class="flex flex-col">
+<span class="text-sandstone font-label-mono text-[10px]">90 MIN</span>
+<span class="text-primary font-bold">$195</span>
+</div>
+<button class="w-12 h-12 rounded-full border border-glass-border flex items-center justify-center group-hover:bg-primary group-hover:text-forest-deep transition-all">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="glass-card rounded-3xl p-10 flex flex-col h-full group hover:bg-white/5 transition-all">
+<span class="font-label-mono text-xs text-sandstone mb-8">03 — SLEEP</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Aroma Sleep Ritual</h3>
+<p class="font-body-base text-on-surface-variant mb-12 flex-grow">A quiet aromatherapy session with breathwork and grounding touch designed for evening restoration.</p>
+<div class="flex justify-between items-end">
+<div class="flex flex-col">
+<span class="text-sandstone font-label-mono text-[10px]">45 MIN</span>
+<span class="text-primary font-bold">$110</span>
+</div>
+<button class="w-12 h-12 rounded-full border border-glass-border flex items-center justify-center group-hover:bg-primary group-hover:text-forest-deep transition-all">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Ritual Shop Teaser -->
+<section class="py-section-gap-lg px-margin-desktop max-w-[1280px] mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div class="max-w-xl">
+<span class="font-label-mono text-label-mono text-primary mb-4 block">RITUAL SHOP</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-md text-on-surface">Botanical formulas for the pause after the spa</h2>
+</div>
+<a class="text-primary font-bold flex items-center gap-2 hover:gap-4 transition-all" href="#">View full collection <span class="material-symbols-outlined">east</span></a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Product 1 -->
+<div class="group">
+<div class="aspect-[4/5] rounded-2xl overflow-hidden glass-card mb-6 relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A minimalist aesthetic photo of a cobalt blue tansy glass serum bottle resting on a wet moss-covered stone. Soft natural light filters through trees, creating an organic, moody forest atmosphere. The packaging is elegant and high-end, fitting a quiet luxury wellness brand with a dark botanical color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhe_fB5cNB8O6Q6UVSrbVbOjyqweLpKMBEQjOLLc1FpTbuEhkTrcnupbqO0Kf6vNhbOa_Mz2-2WDRBxOp8czvqzI30Kdh2qqURWH6ZXZhrEvC3erM-eIU8BIfLvqLN7HiwbYvapTlNi_ubZE99PZwKGYtBv3tn4gvAQEpj5Zd8aK6LIv8rgKCSXecalb677DS25td0nf6I-Gw4Aca4M3hyYWaaAki-e2zOBgSzuYb2qpoor7NX5gS0uTws1Tznt-8nIhbvHnxGkyo"/>
+<div class="absolute top-4 right-4 glass-card px-3 py-1 rounded-full font-label-mono text-[10px] text-on-surface">$88</div>
+</div>
+<h4 class="font-body-lg font-medium text-on-surface mb-1">Blue Tansy Calm Serum</h4>
+<p class="font-label-mono text-[10px] text-sandstone uppercase tracking-widest">Repair &amp; Cushion</p>
+</div>
+<!-- Product 2 -->
+<div class="group">
+<div class="aspect-[4/5] rounded-2xl overflow-hidden glass-card mb-6 relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="An amber glass bottle of body oil placed next to fresh cypress branches on a dark textured wood surface. The lighting is low and atmospheric, evoking a sense of evening calm in a luxury forest retreat. The visual style is editorial and premium, emphasizing natural ingredients and a sophisticated wellness aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1Pp7zH_0ACiSlPuTDQgupEpf9IyHiWbJUcvEcrxkzSJMiUB5tkJy4VBiiraCBd2oRIFe6x16bZLzGIltoT87nI32Fb8oquUSJOUOosKbGTL6Yt-R6kNDytUCAbPqf7DyXPSP_xZHwtVfG_ObnO7XmdN94Kk3_QH5En-tqrcbrUWS3WHtesoeYwtAFXA98vvo4_RRu8xTY_ICkC8ix44aFYlGhiPo9z7X_wjJ-BdDKwyH0o_LG8JBRo2Wiw7W5_72cqNBVqYwkI9E"/>
+<div class="absolute top-4 right-4 glass-card px-3 py-1 rounded-full font-label-mono text-[10px] text-on-surface">$74</div>
+</div>
+<h4 class="font-body-lg font-medium text-on-surface mb-1">Hinoki Body Oil</h4>
+<p class="font-label-mono text-[10px] text-sandstone uppercase tracking-widest">Grounding Aromatics</p>
+</div>
+<!-- Product 3 -->
+<div class="group">
+<div class="aspect-[4/5] rounded-2xl overflow-hidden glass-card mb-6 relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A ceramic jar of rose clay facial polish open on a stone countertop with a few dried rose petals nearby. The image features a shallow depth of field and soft, misty lighting. The overall mood is serene and luxurious, using a palette of muted terracotta and deep greens to reflect a premium botanical skincare brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZcD1p96k5TjGhkNmpSjVzE-pwf8iBvyIqVeLdbIFXC_-V6z-5BuZ6e967F__zVCWRrrBRsmlMFKrfPbXj67DxVZLXEnrNrmsTgpWoJt0-JUn41PfiPb8CTujk5UxUgEGxV3QurOO9YHCTWpmDhfTPrZss_RXBlK3wVUkI_hixbkS-8A2WVseK0yNZHwOgCpq83EpnidmHUq1woTx6bD2oIXPJ-j3FeYaehPI7cS4jxSURCP8QPxa3WjLF1hpin-zVdrijvEQqROw"/>
+<div class="absolute top-4 right-4 glass-card px-3 py-1 rounded-full font-label-mono text-[10px] text-on-surface">$52</div>
+</div>
+<h4 class="font-body-lg font-medium text-on-surface mb-1">Rose Clay Polish</h4>
+<p class="font-label-mono text-[10px] text-sandstone uppercase tracking-widest">Exfoliate &amp; Refine</p>
+</div>
+</div>
+</section>
+<!-- Testimonials / Guest Notes -->
+<section class="py-section-gap-lg relative overflow-hidden">
+<div class="leaf-orb bg-secondary/5 -bottom-32 -right-32"></div>
+<div class="px-margin-desktop max-w-[1280px] mx-auto text-center">
+<span class="font-label-mono text-label-mono text-primary mb-4 block">GUEST NOTES</span>
+<div class="flex flex-col md:flex-row gap-gutter">
+<div class="glass-card p-12 rounded-3xl flex-1 text-left">
+<div class="flex text-primary mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-headline-md text-on-surface mb-8 italic">“It felt like stepping out of the city and into a private forest. My shoulders finally dropped.”</p>
+<span class="font-label-mono text-sandstone">— Elena R.</span>
+</div>
+<div class="glass-card p-12 rounded-3xl flex-1 text-left">
+<div class="flex text-primary mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-headline-md text-on-surface mb-8 italic">“The facial was quiet, precise, and luxurious. The blue tansy serum keeps that calm glow going at home.”</p>
+<span class="font-label-mono text-sandstone">— Marin S.</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Membership / AI Assistant Teaser -->
+<section class="py-section-gap-lg px-margin-desktop max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+<div class="bg-forest-deep rounded-[40px] p-12 flex flex-col justify-between border border-primary/10">
+<div>
+<span class="font-label-mono text-xs text-primary mb-4 block uppercase tracking-widest">Seasonal Memberships</span>
+<h3 class="font-headline-lg text-headline-lg-mobile text-on-surface mb-8">Scheduled restoration before depletion</h3>
+<p class="font-body-lg text-on-surface-variant mb-12">Join our monthly sanctuary for guests who want steady restoration across the seasons.</p>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex flex-col">
+<span class="text-sandstone font-label-mono text-[10px]">STARTING FROM</span>
+<span class="text-on-surface text-2xl font-bold font-headline-md">$145/mo</span>
+</div>
+<a class="primary-pill px-8 py-3 rounded-full font-bold" href="#">Join Sanctuary</a>
+</div>
+</div>
+<div class="glass-card rounded-[40px] p-12 flex flex-col">
+<span class="font-label-mono text-xs text-sandstone mb-4 block uppercase tracking-widest">Ritual Guide</span>
+<h3 class="font-headline-md text-on-surface mb-6">Find your ritual</h3>
+<p class="font-body-base text-on-surface-variant mb-8">Receive calm, non-medical guidance using our spa menu and botanical ingredients.</p>
+<div class="bg-background/50 rounded-3xl p-6 mb-8 border border-glass-border">
+<p class="font-body-base text-on-surface-variant italic mb-4">"I feel depleted and want something calming. What should I book?"</p>
+<button class="primary-pill w-full py-4 rounded-2xl font-bold flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">auto_awesome</span> Recommend a ritual
+                    </button>
+</div>
+<p class="font-label-mono text-[10px] text-center text-sandstone/60">AI guidance grounded in our services and ingredients.</p>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-glass-border py-section-gap-sm w-full">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-desktop max-w-[1280px] mx-auto">
+<div class="flex flex-col gap-6">
+<div class="font-headline-md text-headline-md text-primary">Aurelia Grove</div>
+<p class="font-label-mono text-label-mono text-sandstone max-w-xs leading-relaxed">
+                    Luxury wellness rituals shaped by forest calm. A sanctuary for the senses in the heart of Elderwood Ridge.
+                </p>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-mono text-xs text-primary uppercase">Connect</span>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary transition-colors" href="#">Instagram</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary transition-colors" href="#">Journal</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary transition-colors" href="#">Contact</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-mono text-xs text-primary uppercase">Location &amp; Hours</span>
+<p class="font-label-mono text-label-mono text-on-surface-variant">Elderwood Ridge, PNW</p>
+<p class="font-label-mono text-label-mono text-on-surface-variant">Tuesday to Sunday</p>
+<p class="font-label-mono text-label-mono text-on-surface-variant">9:00 AM - 7:00 PM</p>
+<div class="mt-4 flex gap-4">
+<span class="material-symbols-outlined text-sandstone">spa</span>
+<span class="material-symbols-outlined text-sandstone">park</span>
+<span class="material-symbols-outlined text-sandstone">waves</span>
+</div>
+</div>
+</div>
+<div class="mt-section-gap-sm px-margin-desktop max-w-[1280px] mx-auto pt-8 border-t border-glass-border">
+<p class="font-label-mono text-[10px] text-on-surface-variant opacity-60">© 2024 Aurelia Grove Forest Sanctuary. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Simple scroll interaction for navbar
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('py-4');
+                header.classList.remove('h-24');
+                header.classList.add('h-20');
+            } else {
+                header.classList.remove('py-4');
+                header.classList.add('h-24');
+                header.classList.remove('h-20');
+            }
+        });
+    </script>
+</body></html>

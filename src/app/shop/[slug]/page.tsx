@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import { ServiceCard } from "@/components/cards/service-card";
 import { ingredients, products, services, testimonials } from "@/data";
+import { productImages } from "@/lib/media";
+import { ImageBackdrop } from "@/components/ui/image-backdrop";
 import { productSchema } from "@/lib/schema";
 import { currency } from "@/lib/utils";
 
@@ -17,23 +19,23 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
   const reviews = testimonials.filter((testimonial) => product.reviewIds.includes(testimonial.id));
 
   return (
-    <main className="mx-auto max-w-7xl flex-1 px-5 py-20 lg:px-8">
+    <main className="mx-auto max-w-[1280px] flex-1 px-5 pb-24 pt-40 md:px-16">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema(product, reviews)) }} />
       <div className="grid gap-10 md:grid-cols-[0.9fr_1.1fr]">
-        <div className="botanical-card flex min-h-[460px] items-center justify-center rounded-[3rem] p-10">
-          <div className="leaf-orb flex h-72 w-72 items-center justify-center p-10 text-center text-sm uppercase tracking-[0.2em] text-stone">{product.image}</div>
+        <div className="botanical-card image-veil min-h-[560px] rounded-[3rem] p-3">
+          <ImageBackdrop src={productImages[product.slug] ?? productImages["blue-tansy-calm-serum"]} alt={product.name} sizes="(min-width: 768px) 45vw, 100vw" priority className="rounded-[2.5rem]" />
         </div>
         <div>
           <p className="section-kicker">{currency(product.price)}</p>
-          <h1 className="mt-5 font-serif text-6xl text-stone md:text-8xl">{product.name}</h1>
+          <h1 className="mt-5 font-serif text-[56px] leading-[1.05] text-alabaster md:text-8xl">{product.name}</h1>
           <p className="mt-8 text-xl leading-9 text-muted">{product.description}</p>
           <div className="mt-10 grid gap-5 sm:grid-cols-2">
             <section className="botanical-card rounded-[2rem] p-6">
-              <h2 className="font-serif text-3xl text-stone">Benefits</h2>
+              <h2 className="font-serif text-3xl text-alabaster">Benefits</h2>
               <ul className="mt-5 space-y-3 text-muted">{product.benefits.map((benefit) => <li key={benefit}>{benefit}</li>)}</ul>
             </section>
             <section className="botanical-card rounded-[2rem] p-6">
-              <h2 className="font-serif text-3xl text-stone">Ingredients</h2>
+              <h2 className="font-serif text-3xl text-alabaster">Ingredients</h2>
               <ul className="mt-5 space-y-3 text-muted">{productIngredients.map((ingredient) => <li key={ingredient.id}>{ingredient.name}</li>)}</ul>
             </section>
           </div>

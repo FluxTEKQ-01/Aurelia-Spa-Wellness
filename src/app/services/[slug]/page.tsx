@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import { ProductCard } from "@/components/cards/product-card";
 import { faqs, ingredients, products, services } from "@/data";
+import { serviceImages } from "@/lib/media";
+import { ImageBackdrop } from "@/components/ui/image-backdrop";
 import { currency } from "@/lib/utils";
 import { serviceSchema, faqSchema } from "@/lib/schema";
 
@@ -17,22 +19,29 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
   const relatedProducts = products.filter((product) => service.relatedProductIds.includes(product.id));
 
   return (
-    <main className="mx-auto max-w-7xl flex-1 px-5 py-20 lg:px-8">
+    <main className="mx-auto max-w-[1280px] flex-1 px-5 pb-24 pt-40 md:px-16">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([serviceSchema(service), faqSchema(serviceFaqs)]) }} />
-      <p className="section-kicker">{service.durationMinutes} minutes - from {currency(service.priceFrom)}</p>
-      <h1 className="mt-5 max-w-4xl font-serif text-6xl text-stone md:text-8xl">{service.name}</h1>
-      <p className="mt-8 max-w-3xl text-xl leading-9 text-muted">{service.description}</p>
+      <div className="grid items-center gap-10 md:grid-cols-12">
+        <div className="md:col-span-5">
+          <p className="section-kicker">{service.durationMinutes} minutes · from {currency(service.priceFrom)}</p>
+          <h1 className="mt-5 font-serif text-[56px] leading-[1.05] text-alabaster md:text-8xl">{service.name}</h1>
+          <p className="mt-8 text-xl leading-9 text-muted">{service.description}</p>
+        </div>
+        <div className="image-veil min-h-[520px] rounded-[2rem] md:col-span-7">
+          <ImageBackdrop src={serviceImages[service.slug]} alt={service.name} sizes="(min-width: 768px) 58vw, 100vw" priority />
+        </div>
+      </div>
       <div className="mt-14 grid gap-6 md:grid-cols-3">
         <section className="botanical-card rounded-[2rem] p-7">
-          <h2 className="font-serif text-3xl text-stone">Benefits</h2>
+          <h2 className="font-serif text-3xl text-alabaster">Benefits</h2>
           <ul className="mt-5 space-y-3 text-muted">{service.benefits.map((benefit) => <li key={benefit}>{benefit}</li>)}</ul>
         </section>
         <section className="botanical-card rounded-[2rem] p-7">
-          <h2 className="font-serif text-3xl text-stone">Botanicals</h2>
+          <h2 className="font-serif text-3xl text-alabaster">Botanicals</h2>
           <ul className="mt-5 space-y-3 text-muted">{serviceIngredients.map((ingredient) => <li key={ingredient.id}>{ingredient.name}</li>)}</ul>
         </section>
         <section className="botanical-card rounded-[2rem] p-7">
-          <h2 className="font-serif text-3xl text-stone">Reserve</h2>
+          <h2 className="font-serif text-3xl text-alabaster">Reserve</h2>
           <p className="mt-5 leading-7 text-muted">Request a consultation and we will tailor pressure, aromatics, and pace to your preferences.</p>
         </section>
       </div>

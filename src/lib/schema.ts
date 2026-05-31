@@ -6,7 +6,14 @@ export function localBusinessSchema() {
     "@type": "DaySpa",
     name: "Aurelia Grove Spa",
     description: "Premium botanical spa and wellness rituals inspired by forest restoration.",
-    priceRange: "$$$",
+    priceRange: "₹₹₹",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Bandra West",
+      addressLocality: "Mumbai",
+      addressRegion: "Maharashtra",
+      addressCountry: "IN",
+    },
   };
 }
 
@@ -16,7 +23,7 @@ export function serviceSchema(service: Service) {
     "@type": "Service",
     name: service.name,
     description: service.description,
-    offers: { "@type": "Offer", price: service.priceFrom, priceCurrency: "USD" },
+    offers: { "@type": "Offer", price: service.priceFrom, priceCurrency: "INR" },
   };
 }
 
@@ -26,7 +33,7 @@ export function productSchema(product: Product, reviews: Testimonial[] = []) {
     "@type": "Product",
     name: product.name,
     description: product.description,
-    offers: { "@type": "Offer", price: product.price, priceCurrency: "USD" },
+    offers: { "@type": "Offer", price: product.price, priceCurrency: "INR" },
     review: reviews.map((review) => ({
       "@type": "Review",
       author: { "@type": "Person", name: review.customerName },

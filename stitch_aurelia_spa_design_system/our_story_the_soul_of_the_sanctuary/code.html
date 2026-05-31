@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Our Story | Aurelia Grove</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&amp;family=Geist:wght@300..700&amp;family=JetBrains+Mono:wght@400..500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "glass-border": "rgba(245, 239, 227, 0.16)",
+                    "surface-variant": "#2f372f",
+                    "surface-container": "#1a211b",
+                    "surface-tint": "#e3c381",
+                    "surface": "#0e150f",
+                    "secondary-fixed-dim": "#b8cda6",
+                    "secondary-container": "#3a4c2e",
+                    "outline-variant": "#4d463a",
+                    "alabaster": "#F5EFE3",
+                    "surface-bright": "#343b34",
+                    "primary-fixed": "#ffdf9e",
+                    "surface-container-highest": "#2f372f",
+                    "primary-container": "#d1b272",
+                    "on-primary": "#3f2e00",
+                    "on-primary-container": "#5a440e",
+                    "on-tertiary-fixed-variant": "#683b20",
+                    "on-error-container": "#ffdad6",
+                    "tertiary": "#ffc5a6",
+                    "inverse-primary": "#735b24",
+                    "on-secondary": "#253519",
+                    "tertiary-fixed-dim": "#fab894",
+                    "surface-dim": "#0e150f",
+                    "glass-fill": "rgba(245, 239, 227, 0.08)",
+                    "background": "#0e150f",
+                    "on-secondary-fixed-variant": "#3a4c2e",
+                    "on-primary-fixed": "#261a00",
+                    "on-background": "#dde5da",
+                    "surface-container-lowest": "#09100a",
+                    "outline": "#999081",
+                    "surface-container-low": "#161d17",
+                    "error-container": "#93000a",
+                    "on-secondary-fixed": "#101f07",
+                    "sandstone": "#CBBF9D",
+                    "forest-deep": "#122319",
+                    "inverse-surface": "#dde5da",
+                    "on-secondary-container": "#a7bb96",
+                    "primary-fixed-dim": "#e3c381",
+                    "on-tertiary": "#4d260c",
+                    "primary": "#eecd8b",
+                    "on-tertiary-fixed": "#331200",
+                    "on-surface": "#dde5da",
+                    "secondary": "#b8cda6",
+                    "error": "#ffb4ab",
+                    "on-error": "#690005",
+                    "tertiary-fixed": "#ffdbc9",
+                    "tertiary-container": "#e7a885",
+                    "on-primary-fixed-variant": "#59430e",
+                    "on-tertiary-container": "#693c21",
+                    "secondary-fixed": "#d4e9c1",
+                    "surface-container-high": "#242c25",
+                    "on-surface-variant": "#d0c5b5",
+                    "inverse-on-surface": "#2b322b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-gap-sm": "80px",
+                    "unit": "4px",
+                    "section-gap-lg": "120px",
+                    "margin-mobile": "20px",
+                    "margin-desktop": "64px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "display-hero": [
+                            "Fraunces"
+                    ],
+                    "label-mono": [
+                            "JetBrains Mono"
+                    ],
+                    "headline-md": [
+                            "Fraunces"
+                    ],
+                    "headline-lg-mobile": [
+                            "Fraunces"
+                    ],
+                    "headline-lg": [
+                            "Fraunces"
+                    ],
+                    "display-hero-mobile": [
+                            "Fraunces"
+                    ],
+                    "body-lg": [
+                            "Geist"
+                    ],
+                    "body-base": [
+                            "Geist"
+                    ]
+            },
+            "fontSize": {
+                    "display-hero": [
+                            "96px",
+                            {
+                                    "lineHeight": "1.05",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "label-mono": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.2em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-md": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "40px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.015em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-lg": [
+                            "60px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.015em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-hero-mobile": [
+                            "56px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-lg": [
+                            "20px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-base": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+        },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0B120C;
+            color: #dde5da;
+        }
+        .aurelia-orb {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(238, 205, 139, 0.05) 0%, rgba(238, 205, 139, 0) 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+        .moss-orb {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(184, 205, 166, 0.03) 0%, rgba(184, 205, 166, 0) 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col relative overflow-x-hidden selection:bg-primary/20 selection:text-primary">
+<!-- Ambient Glows -->
+<div class="aurelia-orb top-0 left-[-200px]"></div>
+<div class="moss-orb top-[40%] right-[-300px]"></div>
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full bg-background/80 backdrop-blur-xl border-b border-glass-border flex justify-between items-center px-margin-desktop py-6 w-full z-50 transition-all duration-500 ease-in-out md:px-margin-desktop px-margin-mobile">
+<a class="font-display-hero text-headline-md text-primary tracking-tight md:text-headline-md text-headline-lg-mobile" href="/">
+            Aurelia Grove
+        </a>
+<nav class="hidden md:flex items-center gap-8 font-body-base text-body-base">
+<a class="text-primary font-medium hover:text-primary transition-opacity duration-300" href="/story">Our Story</a>
+<a class="text-on-surface-variant/80 hover:text-primary transition-opacity duration-300" href="/philosophy">Philosophy</a>
+<a class="text-on-surface-variant/80 hover:text-primary transition-opacity duration-300" href="/sanctuary">Sanctuary</a>
+<a class="text-on-surface-variant/80 hover:text-primary transition-opacity duration-300" href="/experience">Experience</a>
+</nav>
+<a class="hidden md:flex items-center justify-center px-8 py-3 rounded-full bg-gradient-to-r from-primary to-secondary text-background font-body-base text-body-base font-bold hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(238,205,139,0.3)] transition-all duration-300" href="/book">
+            Book Session
+        </a>
+<!-- Mobile Menu Trigger -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</header>
+<main class="flex-grow pt-[120px]">
+<!-- Hero Section -->
+<section class="relative w-full h-[80vh] min-h-[600px] flex items-end pb-section-gap-sm md:pb-section-gap-lg px-margin-mobile md:px-margin-desktop mb-section-gap-lg" data-alt="An immersive wide shot of the Pacific Northwest forest at dawn. Towering ancient cedar trees are enveloped in a soft, misty haze. Rays of golden morning light pierce through the canopy, illuminating the deep mossy ground. The atmosphere is profoundly quiet, cinematic, and saturated with rich forest greens and warm gold tones, perfectly reflecting a high-end luxury sanctuary." style="background-image: url('https://lh3.googleusercontent.com/aida/ADBb0uhxQJik2UlYk-3MrGhJOEkx3keUiXUseD1DwUELkhwrobENwek271kR2nxnpUJIAnLEc2EhMFBGjUvXSW1ZI-I1uide3_wQgaZKpzc0QXnOE2BTB1XnNUEaAmlqdRtWeN8RzA7_VgIhPmtaS9Bva2aSrn03kLzX1m4K0wtCOy1ekBqLVuYGY8tS5PieZa8uqh4EauaEqQBb1m3ljfY9e3V8FVs8GjyP95QSDCEpiRkajsMf-VoFUD07lR0'); background-size: cover; background-position: center;">
+<!-- Gradient Overlay for text legibility -->
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
+<div class="relative z-10 max-w-[1280px] mx-auto w-full">
+<h1 class="font-display-hero text-display-hero-mobile md:text-display-hero text-alabaster mb-6">
+                    Our Story: <br/>The Soul of the Sanctuary
+                </h1>
+<p class="font-body-lg text-body-lg text-sandstone max-w-2xl">
+                    Aurelia Grove was born from a simple realization: that true restoration cannot be rushed. It must be cultivated, like the moss on an ancient cedar.
+                </p>
+</div>
+</section>
+<!-- The Origin -->
+<section class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop mb-section-gap-lg grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+<div class="md:col-span-5 md:sticky md:top-32">
+<span class="font-label-mono text-label-mono text-sandstone uppercase tracking-widest block mb-4">The Origin</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">From Noise to Stillness</h2>
+</div>
+<div class="md:col-span-7 flex flex-col gap-8">
+<p class="font-body-lg text-body-lg text-on-surface">
+                    Aurelia Grove blends therapeutic touch, botanical skincare, mineral body rituals, and grounded aromatics into a premium wellness sanctuary. We recognized a profound need to step away from the clinical sterility of traditional spas and the relentless pace of urban life.
+                </p>
+<div class="bg-glass-fill backdrop-blur-[18px] border border-glass-border rounded-xl p-8 md:p-10 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none"></div>
+<span class="material-symbols-outlined text-4xl text-surface-tint mb-6 block" style="font-variation-settings: 'FILL' 1;">spa</span>
+<p class="font-body-base text-body-base text-on-surface-variant italic border-l-2 border-surface-tint pl-6">
+                        "It felt like stepping out of the city and into a private forest. My shoulders finally dropped."
+                        <span class="block mt-4 text-sm not-italic text-sandstone font-medium">— Elena R.</span>
+</p>
+</div>
+<p class="font-body-base text-body-base text-on-surface-variant">
+                    We found our anchor in Elderwood Ridge. Here, the architecture recedes, allowing the forest to dictate the rhythm. It is a place where every element—from the texture of the stone to the scent of the air—is designed to induce an immediate sensory decompression.
+                </p>
+</div>
+</section>
+<!-- Our Philosophy (Bento-ish Grid) -->
+<section class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop mb-section-gap-lg">
+<div class="text-center mb-16">
+<span class="font-label-mono text-label-mono text-sandstone uppercase tracking-widest block mb-4">Our Philosophy</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-alabaster">Botanical Intelligence</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="bg-glass-fill backdrop-blur-[18px] border border-glass-border rounded-xl p-8 md:p-10 flex flex-col h-full hover:bg-surface-variant/30 transition-colors duration-500">
+<span class="material-symbols-outlined text-3xl text-secondary mb-6 block">eco</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Blue Tansy</h3>
+<p class="font-body-base text-body-base text-on-surface-variant flex-grow">
+                        Infused into facial oils and recovery masks for sensitive skin days. It provides visible calm and cushioned resilience.
+                    </p>
+</div>
+<!-- Card 2 -->
+<div class="bg-glass-fill backdrop-blur-[18px] border border-glass-border rounded-xl p-8 md:p-10 flex flex-col h-full hover:bg-surface-variant/30 transition-colors duration-500 md:-translate-y-8">
+<span class="material-symbols-outlined text-3xl text-primary mb-6 block">forest</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Hinoki Cypress</h3>
+<p class="font-body-base text-body-base text-on-surface-variant flex-grow">
+                        Diffused during massage and blended into bath rituals. A grounding element that offers a polished forest aroma and profound structural calm.
+                    </p>
+</div>
+<!-- Card 3 -->
+<div class="bg-glass-fill backdrop-blur-[18px] border border-glass-border rounded-xl p-8 md:p-10 flex flex-col h-full hover:bg-surface-variant/30 transition-colors duration-500">
+<span class="material-symbols-outlined text-3xl text-tertiary mb-6 block">waves</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Mineral Sea Kelp</h3>
+<p class="font-body-base text-body-base text-on-surface-variant flex-grow">
+                        Used in body wraps and replenishing creams. A warm, mineral-rich embrace that provides full-body replenishment.
+                    </p>
+</div>
+</div>
+</section>
+<!-- The Space -->
+<section class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop mb-section-gap-lg">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="order-2 md:order-1 rounded-xl overflow-hidden h-[600px] border border-glass-border">
+<img alt="The sanctuary interior" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0uidtTj7WlTmSdWJfzrO8oWwxA0SHk0t4MG5D0XuytaUNaKJu4GtgsrGOW5X7jDs1L1ffbXMEICEs_kwJOjs-bi3uh5qelxX5EukCnb5K-j3KJPKpS0ZTtpS4iKoetUvRhJJqEvP4L5h9GJ2XcetPQ-KdMmtu3gefkXdfKILT3TqfpZrFGs-vWzMR9ApeS9KnS7Kt5GOY4IO5WNj9sJJXlON-PWjhvEz5phGXlXfS1PBTZALRFSU75Ucv4A"/>
+</div>
+<div class="order-1 md:order-2 flex flex-col items-start">
+<span class="font-label-mono text-label-mono text-sandstone uppercase tracking-widest block mb-4 bg-alabaster/10 px-3 py-1 rounded-full">The Architecture</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-6">Stone, Wood, &amp; Light</h2>
+<p class="font-body-lg text-body-lg text-on-surface mb-8">
+                        The physical space of Aurelia Grove is an extension of the treatments themselves. Heavy, raw stone grounds the environment, while warm, slatted wood diffuses light into soft, cinematic rays. It is an atmospheric envelope designed to hold you gently.
+                    </p>
+<a class="inline-flex items-center justify-center px-6 py-2 rounded-full border border-glass-border text-sandstone font-body-base text-body-base hover:bg-alabaster/10 transition-all duration-300" href="/sanctuary">
+                        Explore the Sanctuary
+                    </a>
+</div>
+</div>
+</section>
+<!-- The Aurelia Standard -->
+<section class="w-full bg-surface-container-low border-y border-glass-border py-section-gap-sm md:py-section-gap-lg mb-section-gap-lg">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop text-center">
+<span class="material-symbols-outlined text-5xl text-primary mb-6 block" style="font-variation-settings: 'FILL' 1;">local_florist</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-alabaster mb-6">The Aurelia Standard</h2>
+<p class="font-display-hero text-headline-md md:text-display-hero text-primary italic max-w-4xl mx-auto mb-8">
+                    "Ethically Wild, Purely Botanical"
+                </p>
+<p class="font-body-base text-body-base text-on-surface-variant max-w-2xl mx-auto">
+                    We are committed to formulas and practices that honor the earth as deeply as they restore the body. Quiet, precise rituals shaped by forest calm.
+                </p>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-section-gap-sm bg-surface-container-lowest border-t border-glass-border flex flex-col items-center gap-8 px-margin-desktop text-center slow-fade-in md:px-margin-desktop px-margin-mobile">
+<div class="font-display-hero text-headline-md text-primary tracking-tight">
+            Aurelia Grove
+        </div>
+<nav class="flex flex-wrap justify-center gap-x-8 gap-y-4 font-body-base text-body-base">
+<a class="text-on-surface-variant hover:text-alabaster transition-colors" href="/sustainability">Sustainability</a>
+<a class="text-on-surface-variant hover:text-alabaster transition-colors" href="/contact">Contact</a>
+<a class="text-on-surface-variant hover:text-alabaster transition-colors" href="/press">Press</a>
+<a class="text-on-surface-variant hover:text-alabaster transition-colors" href="/privacy">Privacy</a>
+</nav>
+<div class="font-body-base text-body-base text-on-surface-variant/60 text-sm mt-4">
+            © 2024 Aurelia Grove. Crafted for the unhurried.
+        </div>
+</footer>
+</body></html>

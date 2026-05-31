@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rituals | Aurelia Grove Forest Sanctuary</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&amp;family=Geist:wght@300;400;500&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #0e150f;
+            color: #dde5da;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-card {
+            background: rgba(245, 239, 227, 0.08);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(245, 239, 227, 0.16);
+        }
+        .leaf-orb {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(238, 205, 139, 0.08) 0%, rgba(18, 35, 25, 0) 70%);
+            z-index: -1;
+            filter: blur(60px);
+        }
+        .primary-pill {
+            background: linear-gradient(135deg, #eecd8b 0%, #b8cda6 100%);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .primary-pill:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px -5px rgba(238, 205, 139, 0.3);
+        }
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#735b24",
+                        "forest-deep": "#122319",
+                        "on-surface-variant": "#d0c5b5",
+                        "on-error-container": "#ffdad6",
+                        "tertiary": "#ffc5a6",
+                        "on-secondary": "#253519",
+                        "surface-bright": "#343b34",
+                        "surface-container": "#1a211b",
+                        "on-primary-fixed-variant": "#59430e",
+                        "on-error": "#690005",
+                        "error": "#ffb4ab",
+                        "surface-container-low": "#161d17",
+                        "on-secondary-fixed-variant": "#3a4c2e",
+                        "on-tertiary-fixed": "#331200",
+                        "on-tertiary-container": "#693c21",
+                        "on-primary-container": "#5a440e",
+                        "background": "#0e150f",
+                        "surface-tint": "#e3c381",
+                        "glass-border": "rgba(245, 239, 227, 0.16)",
+                        "tertiary-fixed": "#ffdbc9",
+                        "secondary-fixed": "#d4e9c1",
+                        "outline-variant": "#4d463a",
+                        "surface-container-high": "#242c25",
+                        "inverse-surface": "#dde5da",
+                        "secondary-container": "#3a4c2e",
+                        "error-container": "#93000a",
+                        "on-secondary-container": "#a7bb96",
+                        "inverse-on-surface": "#2b322b",
+                        "secondary": "#b8cda6",
+                        "primary-container": "#d1b272",
+                        "on-surface": "#dde5da",
+                        "surface-container-highest": "#2f372f",
+                        "on-tertiary": "#4d260c",
+                        "secondary-fixed-dim": "#b8cda6",
+                        "tertiary-fixed-dim": "#fab894",
+                        "primary-fixed": "#ffdf9e",
+                        "on-primary-fixed": "#261a00",
+                        "tertiary-container": "#e7a885",
+                        "outline": "#999081",
+                        "primary-fixed-dim": "#e3c381",
+                        "on-primary": "#3f2e00",
+                        "on-tertiary-fixed-variant": "#683b20",
+                        "surface-dim": "#0e150f",
+                        "surface-container-lowest": "#09100a",
+                        "on-secondary-fixed": "#101f07",
+                        "on-background": "#dde5da",
+                        "surface": "#0e150f",
+                        "primary": "#eecd8b",
+                        "alabaster": "#F5EFE3",
+                        "sandstone": "#CBBF9D",
+                        "glass-fill": "rgba(245, 239, 227, 0.08)",
+                        "surface-variant": "#2f372f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "3xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap-sm": "80px",
+                        "section-gap-lg": "120px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Fraunces"],
+                        "headline-lg-mobile": ["Fraunces"],
+                        "display-hero-mobile": ["Fraunces"],
+                        "label-mono": ["JetBrains Mono"],
+                        "headline-md": ["Fraunces"],
+                        "body-base": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "display-hero": ["Fraunces"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["60px", {"lineHeight": "1.1", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+                        "display-hero-mobile": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "label-mono": ["12px", {"lineHeight": "16px", "letterSpacing": "0.2em", "fontWeight": "500"}],
+                        "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "body-base": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-lg": ["20px", {"lineHeight": "32px", "fontWeight": "400"}],
+                        "display-hero": ["96px", {"lineHeight": "1.05", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="overflow-x-hidden">
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-glass-border">
+<div class="flex justify-between items-center h-24 px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto">
+<a class="font-headline-md text-headline-md text-primary tracking-tight" href="/">Aurelia Grove</a>
+<div class="hidden md:flex items-center space-x-12">
+<a class="font-body-base text-body-base text-on-surface font-semibold hover:text-on-surface transition-opacity duration-300" href="#">Rituals</a>
+<a class="font-body-base text-body-base text-on-surface-variant hover:text-on-surface transition-opacity duration-300" href="#">Shop</a>
+<a class="font-body-base text-body-base text-on-surface-variant hover:text-on-surface transition-opacity duration-300" href="#">Journal</a>
+<a class="font-body-base text-body-base text-on-surface-variant hover:text-on-surface transition-opacity duration-300" href="#">Contact</a>
+</div>
+<button class="primary-pill px-8 py-3 rounded-full text-forest-deep font-bold font-body-base">
+                Book a Ritual
+            </button>
+</div>
+</nav>
+<main class="pt-32">
+<!-- Hero Section -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto mb-section-gap-lg">
+<div class="flex flex-col md:flex-row gap-12 items-end">
+<div class="md:w-2/3">
+<span class="font-label-mono text-label-mono text-primary uppercase mb-6 block tracking-[0.3em]">Signature Rituals</span>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Quiet, precise rituals for <span class="italic font-normal">body and skin.</span></h1>
+</div>
+<div class="md:w-1/3 pb-4">
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                        Step away from the city and into a private forest sanctuary. Our treatments combine grounded aromatics with therapeutic precision.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Menu Grid -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto mb-section-gap-lg relative">
+<div class="leaf-orb top-0 -left-24"></div>
+<div class="leaf-orb bottom-0 -right-24"></div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Treatment 1 -->
+<div class="glass-card p-10 rounded-3xl group cursor-pointer transition-all duration-500 hover:border-primary/40 scroll-reveal active">
+<div class="flex justify-between items-start mb-12">
+<span class="font-label-mono text-label-mono text-sandstone">75 MINUTES</span>
+<span class="font-label-mono text-label-mono text-primary">FROM $165</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4 group-hover:text-primary transition-colors">Forest Reset Massage</h3>
+<p class="font-body-base text-body-base text-on-surface-variant mb-12 max-w-sm">
+                        A slow therapeutic massage with warm stones, hinoki aromatics, and pressure customized to your nervous system.
+                    </p>
+<div class="flex items-center gap-2 text-primary font-label-mono text-label-mono uppercase tracking-widest">
+<span>Reserve Treatment</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</div>
+</div>
+<!-- Treatment 2 -->
+<div class="glass-card p-10 rounded-3xl group cursor-pointer transition-all duration-500 hover:border-primary/40 scroll-reveal active">
+<div class="flex justify-between items-start mb-12">
+<span class="font-label-mono text-label-mono text-sandstone">60 MINUTES</span>
+<span class="font-label-mono text-label-mono text-primary">FROM $145</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4 group-hover:text-primary transition-colors">Botanical Recovery Facial</h3>
+<p class="font-body-base text-body-base text-on-surface-variant mb-12 max-w-sm">
+                        A cocooning facial using blue tansy, rose clay, and facial massage to restore visible calm and luminosity.
+                    </p>
+<div class="flex items-center gap-2 text-primary font-label-mono text-label-mono uppercase tracking-widest">
+<span>Reserve Treatment</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</div>
+</div>
+<!-- Featured Visual 1 -->
+<div class="hidden md:block relative h-[400px] rounded-3xl overflow-hidden scroll-reveal active">
+<img alt="Texture close-up" class="w-full h-full object-cover grayscale opacity-60 hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida/ADBb0uikDXw_-Qy6eujH77ILY_-bZmig-9ne_-r9GVBkMo627ySPQzpqB4SAW20UW0guDL5q2K06eKsxEVd4akpuFQSy2h8GlFwhf5sg6KZLjGUDKNECxECBT9aFJy1qfBGVLtCP9DJ79f_0FYZ_6g3B_EYhvLk4BPI1JNTRvpBnbOMl4XidGKzLAhxWxM4qKObN5uiAKWDbeMGfX_Q0iWl2ThDayI8iIPkDZhfUP9VdJrVkF9v7oYj9Q061fqU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="absolute bottom-8 left-8">
+<p class="font-label-mono text-label-mono text-alabaster max-w-[200px]">THE TEXTURE OF RECOVERY: BLUE TANSY CALM SERUM</p>
+</div>
+</div>
+<!-- Treatment 3 -->
+<div class="glass-card p-10 rounded-3xl group cursor-pointer transition-all duration-500 hover:border-primary/40 scroll-reveal active">
+<div class="flex justify-between items-start mb-12">
+<span class="font-label-mono text-label-mono text-sandstone">90 MINUTES</span>
+<span class="font-label-mono text-label-mono text-primary">FROM $195</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4 group-hover:text-primary transition-colors">Mineral Body Wrap</h3>
+<p class="font-body-base text-body-base text-on-surface-variant mb-12 max-w-sm">
+                        A warm sea-kelp wrap, scalp massage, and botanical body cream ritual for full-body replenishment.
+                    </p>
+<div class="flex items-center gap-2 text-primary font-label-mono text-label-mono uppercase tracking-widest">
+<span>Reserve Treatment</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</div>
+</div>
+<!-- Treatment 4 -->
+<div class="glass-card p-10 rounded-3xl group cursor-pointer transition-all duration-500 hover:border-primary/40 scroll-reveal active">
+<div class="flex justify-between items-start mb-12">
+<span class="font-label-mono text-label-mono text-sandstone">45 MINUTES</span>
+<span class="font-label-mono text-label-mono text-primary">FROM $110</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4 group-hover:text-primary transition-colors">Aroma Sleep Ritual</h3>
+<p class="font-body-base text-body-base text-on-surface-variant mb-12 max-w-sm">
+                        A quiet aromatherapy session with breathwork, warm compresses, and grounding touch designed for evening restoration.
+                    </p>
+<div class="flex items-center gap-2 text-primary font-label-mono text-label-mono uppercase tracking-widest">
+<span>Reserve Treatment</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</div>
+</div>
+<!-- Featured Visual 2 -->
+<div class="hidden md:block relative h-[400px] rounded-3xl overflow-hidden scroll-reveal active">
+<img alt="Spa setup" class="w-full h-full object-cover grayscale opacity-60 hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida/ADBb0ugFg0vkcsUkdrRBIZ7CIhgOcHjjqVRa9cuCNpKa92JWIpQ4VKfdXHUxi14DQxQwbACWdFn7jKeRElqWVEcJqZIHkumdA4OlroKjZcJJ17BeGTtPaHZqMoe6j3rATBo17cB7Q6slkIEILomi8RY1UmcblRcIkUK-_1xWmOBQTrdgzuXoathtD9IlHTAgjkqp-cJnuWnKcbXXyST5mVbbhnldKwI-u_Vt8lhMNj4CbDfZNOSpinUQVfL6CA0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="absolute bottom-8 left-8">
+<p class="font-label-mono text-label-mono text-alabaster max-w-[200px]">CLEAN LINENS AND CYPRESS BRANCHES FOR DEEP REST</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Aesthetic Membership Section -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto mb-section-gap-lg">
+<div class="glass-card p-12 md:p-20 rounded-[3xl] flex flex-col md:flex-row items-center gap-16 overflow-hidden relative">
+<div class="leaf-orb -right-48 -top-48 opacity-40"></div>
+<div class="md:w-1/2">
+<span class="font-label-mono text-label-mono text-primary mb-6 block uppercase">Memberships</span>
+<h2 class="font-headline-lg-mobile md:font-headline-md text-headline-lg-mobile md:text-headline-md text-on-surface mb-8">Seasonal restoration, scheduled before depletion.</h2>
+<p class="font-body-base text-body-base text-on-surface-variant mb-12">
+                        Enjoy priority booking and preferred rates on all rituals with our sanctuary programs. Built for guests who prioritize steady restoration.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-6">
+<div class="bg-forest-deep/50 p-6 rounded-2xl border border-glass-border flex-1">
+<span class="font-label-mono text-[10px] text-sandstone block mb-2 uppercase">From $145 Monthly</span>
+<p class="font-headline-md text-[20px] text-primary">Monthly Sanctuary</p>
+</div>
+<div class="bg-forest-deep/50 p-6 rounded-2xl border border-glass-border flex-1">
+<span class="font-label-mono text-[10px] text-sandstone block mb-2 uppercase">$360 Quarterly</span>
+<p class="font-headline-md text-[20px] text-primary">Seasonal Retreat</p>
+</div>
+</div>
+</div>
+<div class="md:w-1/2 w-full h-[400px] rounded-2xl overflow-hidden shadow-2xl relative">
+<div class="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
+<img class="w-full h-full object-cover" data-alt="A serene forest at dawn with mist rolling through ancient trees, representing the sanctuary." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZm1cvbOQ2Jg2j83nJGApFtZU5J3VifekJannnFUS5XiFbD6Lxz4ZYlS8l0T5gscA_pRv7RGNBjGwpGcwVTIjx4Cye0brLGkRrzrIJkz6B_5TZiH_zdA6QgM0ixdnjymD9zj_pzjx5OcdN2NstTPgjdY12vCdN0YkP72W2sKid4GjdyOksEavZ5sb8cMEakHJTu6UmjoMd-pAOjhsDoWJ1K4zu4YuqN39UxTTx8aBapnYxBi-1cJ3x_CNEQdW9WuIxsD3qNm5T2j8"/>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="bg-surface-container-low py-section-gap-lg">
+<div class="px-margin-mobile md:px-margin-desktop max-w-[800px] mx-auto text-center">
+<h2 class="font-headline-lg-mobile md:font-headline-md text-headline-lg-mobile md:text-headline-md text-on-surface mb-8">Ready to find your ritual?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">
+                    Consult with our wellness assistant or book your preferred treatment directly online.
+                </p>
+<div class="flex flex-wrap justify-center gap-6">
+<button class="primary-pill px-10 py-4 rounded-full text-forest-deep font-bold font-body-base">
+                        Book Treatment
+                    </button>
+<button class="px-10 py-4 rounded-full border border-glass-border font-body-base text-on-surface hover:bg-alabaster/10 transition-colors">
+                        View Product Rituals
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-glass-border py-section-gap-sm">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto">
+<div class="space-y-6">
+<div class="font-headline-md text-headline-md text-primary">Aurelia Grove</div>
+<p class="font-body-base text-body-base text-on-surface-variant max-w-xs">
+                    Luxury wellness rituals shaped by forest calm. A botanical sanctuary for the modern pause.
+                </p>
+</div>
+<div class="space-y-4">
+<div class="font-label-mono text-label-mono text-sandstone uppercase tracking-widest mb-6">Contact</div>
+<div class="font-label-mono text-label-mono text-on-surface-variant">Location: Elderwood Ridge, PNW</div>
+<div class="font-label-mono text-label-mono text-on-surface-variant">Hours: Dawn to Dusk</div>
+<div class="font-label-mono text-label-mono text-on-surface-variant">Open Tuesday to Sunday</div>
+</div>
+<div class="space-y-4">
+<div class="font-label-mono text-label-mono text-sandstone uppercase tracking-widest mb-6">Explore</div>
+<div class="flex flex-col gap-3">
+<a class="font-label-mono text-label-mono text-primary hover:text-primary transition-colors" href="#">Rituals</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary transition-colors" href="#">Instagram</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary transition-colors" href="#">Journal</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy</a>
+</div>
+</div>
+</div>
+<div class="px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto mt-20 pt-8 border-t border-glass-border/50">
+<p class="font-label-mono text-label-mono text-on-surface-variant/60">
+                © 2024 Aurelia Grove Forest Sanctuary. All rights reserved.
+            </p>
+</div>
+</footer>
+<script>
+        // Simple scroll reveal interaction
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+        // Subtle parallax/movement for leaf orbs
+        document.addEventListener('mousemove', (e) => {
+            const orbs = document.querySelectorAll('.leaf-orb');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            orbs.forEach((orb, index) => {
+                const moveX = (x - 0.5) * (20 + index * 10);
+                const moveY = (y - 0.5) * (20 + index * 10);
+                orb.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            });
+        });
+    </script>
+</body></html>

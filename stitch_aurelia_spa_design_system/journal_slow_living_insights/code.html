@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Journal | Aurelia Grove</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&amp;family=Geist:wght@300;400;500&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#ffdf9e",
+                        "surface-dim": "#0e150f",
+                        "on-primary-fixed-variant": "#59430e",
+                        "on-tertiary-fixed-variant": "#683b20",
+                        "secondary-fixed-dim": "#b8cda6",
+                        "primary-fixed-dim": "#e3c381",
+                        "inverse-on-surface": "#2b322b",
+                        "on-primary-fixed": "#261a00",
+                        "tertiary-container": "#e7a885",
+                        "surface": "#0e150f",
+                        "outline": "#999081",
+                        "on-surface": "#dde5da",
+                        "surface-container-high": "#242c25",
+                        "primary-container": "#d1b272",
+                        "on-secondary-container": "#a7bb96",
+                        "outline-variant": "#4d463a",
+                        "on-tertiary-container": "#693c21",
+                        "secondary": "#b8cda6",
+                        "primary": "#eecd8b",
+                        "surface-container-low": "#161d17",
+                        "surface-tint": "#e3c381",
+                        "on-secondary-fixed-variant": "#3a4c2e",
+                        "on-primary-container": "#5a440e",
+                        "inverse-surface": "#dde5da",
+                        "tertiary": "#ffc5a6",
+                        "sandstone": "#CBBF9D",
+                        "surface-container-highest": "#2f372f",
+                        "surface-bright": "#343b34",
+                        "glass-border": "rgba(245, 239, 227, 0.16)",
+                        "surface-variant": "#2f372f",
+                        "alabaster": "#F5EFE3",
+                        "on-secondary-fixed": "#101f07",
+                        "on-tertiary": "#4d260c",
+                        "error-container": "#93000a",
+                        "forest-deep": "#122319",
+                        "error": "#ffb4ab",
+                        "on-primary": "#3f2e00",
+                        "tertiary-fixed": "#ffdbc9",
+                        "on-error": "#690005",
+                        "glass-fill": "rgba(245, 239, 227, 0.08)",
+                        "secondary-container": "#3a4c2e",
+                        "inverse-primary": "#735b24",
+                        "on-tertiary-fixed": "#331200",
+                        "on-surface-variant": "#d0c5b5",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-lowest": "#09100a",
+                        "on-secondary": "#253519",
+                        "background": "#0e150f",
+                        "tertiary-fixed-dim": "#fab894",
+                        "secondary-fixed": "#d4e9c1",
+                        "on-background": "#dde5da",
+                        "surface-container": "#1a211b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "unit": "4px",
+                        "section-gap-sm": "80px",
+                        "section-gap-lg": "120px"
+                    },
+                    "fontFamily": {
+                        "display-hero": ["Fraunces"],
+                        "body-base": ["Geist"],
+                        "headline-md": ["Fraunces"],
+                        "body-lg": ["Geist"],
+                        "label-mono": ["JetBrains Mono"],
+                        "headline-lg-mobile": ["Fraunces"],
+                        "headline-lg": ["Fraunces"],
+                        "display-hero-mobile": ["Fraunces"]
+                    },
+                    "fontSize": {
+                        "display-hero": ["96px", { "lineHeight": "1.05", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-base": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "body-lg": ["20px", { "lineHeight": "32px", "fontWeight": "400" }],
+                        "label-mono": ["12px", { "lineHeight": "16px", "letterSpacing": "0.2em", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+                        "headline-lg": ["60px", { "lineHeight": "1.1", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+                        "display-hero-mobile": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .aurelia-veil {
+            border: 1px solid theme('colors.glass-border');
+            background-color: theme('colors.glass-fill');
+            backdrop-filter: blur(18px);
+        }
+
+        .ambient-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .primary-btn {
+            background: linear-gradient(135deg, theme('colors.primary-fixed'), theme('colors.secondary-fixed-dim'));
+            color: theme('colors.surface-dim');
+            transition: all 0.3s ease;
+        }
+        
+        .primary-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(227, 195, 129, 0.2);
+        }
+
+        .secondary-btn {
+            border: 1px solid theme('colors.glass-border');
+            color: theme('colors.sandstone');
+            transition: all 0.3s ease;
+        }
+
+        .secondary-btn:hover {
+            background-color: rgba(245, 239, 227, 0.1);
+        }
+    </style>
+</head>
+<body class="relative min-h-screen flex flex-col overflow-x-hidden font-body-base text-body-base">
+<!-- Ambient Background Glows -->
+<div class="ambient-orb w-[600px] h-[600px] bg-primary top-[-100px] left-[-200px]"></div>
+<div class="ambient-orb w-[500px] h-[500px] bg-secondary-fixed-dim top-[40%] right-[-150px]"></div>
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl bg-transparent border-b border-glass-border transition-all duration-500 ease-in-out">
+<div class="flex justify-between items-center h-24 px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto">
+<a class="font-headline-md text-headline-md text-primary tracking-tight" href="#">Aurelia Grove</a>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-body-base text-body-base text-on-surface-variant hover:text-on-surface transition-opacity duration-300" href="#">Rituals</a>
+<a class="font-body-base text-body-base text-on-surface-variant hover:text-on-surface transition-opacity duration-300" href="#">Shop</a>
+<a class="font-body-base text-body-base text-on-surface font-semibold hover:text-on-surface transition-opacity duration-300" href="#">Journal</a>
+<a class="font-body-base text-body-base text-on-surface-variant hover:text-on-surface transition-opacity duration-300" href="#">Contact</a>
+</nav>
+<a class="hidden md:inline-flex primary-btn px-6 py-3 rounded-full font-bold text-sm tracking-wide" href="#">Book a Ritual</a>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-primary p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="flex-grow pt-[140px] md:pt-[180px] pb-section-gap-sm md:pb-section-gap-lg">
+<!-- Hero Header -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto mb-section-gap-sm md:mb-section-gap-lg text-center">
+<span class="inline-block font-label-mono text-label-mono text-sandstone uppercase tracking-widest mb-6">Read &amp; Reflect</span>
+<h1 class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-primary mb-6 max-w-4xl mx-auto">The Journal</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Musings on slow living, botanical intelligence, and the art of quietude.</p>
+<!-- Categories / Chips -->
+<div class="flex flex-wrap justify-center gap-4 mt-12">
+<a class="px-5 py-2 rounded-full border border-glass-border bg-glass-fill font-label-mono text-label-mono text-primary" href="#">All</a>
+<a class="px-5 py-2 rounded-full border border-transparent text-sandstone hover:bg-glass-fill transition-colors font-label-mono text-label-mono" href="#">Rituals</a>
+<a class="px-5 py-2 rounded-full border border-transparent text-sandstone hover:bg-glass-fill transition-colors font-label-mono text-label-mono" href="#">Botanicals</a>
+<a class="px-5 py-2 rounded-full border border-transparent text-sandstone hover:bg-glass-fill transition-colors font-label-mono text-label-mono" href="#">Sanctuary</a>
+</div>
+</section>
+<!-- Featured Article (Asymmetric Layout) -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto mb-section-gap-sm md:mb-section-gap-lg">
+<div class="aurelia-veil rounded-2xl overflow-hidden flex flex-col lg:flex-row group cursor-pointer hover:border-primary/30 transition-colors duration-500">
+<div class="lg:w-3/5 h-[400px] lg:h-auto relative overflow-hidden">
+<img alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlGoTYMRlFLbbGscCtzPoepaXmqqB54EK_2OcGufK87qr6YukCmed7yyWVkZRgRhRN2BMNLezR-szUL2zGMaJS8k9XRxQsweXcLejopugh7YdYaVP5TwJbO_tlAoPxvT8MrAgwzUZP8iydulbMHHeHlBqM57wILN-NYiGgcvFFQgDyPejwe-8Eq1kM6VgLO-eVU9o7x3pL9r_MJ6mZaF_PRlBJh4tzaT7UuouKTHsEuy8rh5lrx6m7KBj-2EHVmkYrk-uuRk6uLJA"/>
+</div>
+<div class="lg:w-2/5 p-8 md:p-12 flex flex-col justify-center">
+<div class="flex items-center gap-4 mb-6">
+<span class="font-label-mono text-label-mono text-secondary tracking-widest uppercase">Rituals</span>
+<span class="text-on-surface-variant/50 text-sm">•</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant">5 min read</span>
+</div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-md text-on-surface mb-6 group-hover:text-primary transition-colors">A Quiet Guide to Evening Self-Care Rituals</h2>
+<p class="font-body-base text-body-base text-on-surface-variant mb-8 line-clamp-3">
+                        Transitioning from the noise of the day into the stillness of night requires intention. Discover our curated practices for winding down, utilizing sensory cues and botanical infusions to prepare the mind for rest.
+                    </p>
+<div class="mt-auto">
+<span class="inline-flex items-center gap-2 font-label-mono text-label-mono text-primary group-hover:gap-4 transition-all">
+                            Read Article <span class="material-symbols-outlined text-sm">arrow_right_alt</span>
+</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Article Grid (Bento/Masonry feel) -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-gutter">
+<!-- Article Card 1 -->
+<article class="aurelia-veil p-6 md:p-10 rounded-2xl group cursor-pointer hover:border-primary/30 transition-colors flex flex-col h-full">
+<div class="relative h-[250px] md:h-[320px] rounded-xl overflow-hidden mb-8">
+<div class="absolute inset-0 bg-surface-container-high animate-pulse"></div> <!-- Placeholder for image -->
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="A macro, editorial shot of vibrant green botanical leaves and a sleek glass dropper bottle resting on a piece of dark slate. The lighting is moody and directional, highlighting the texture of the leaves and the amber liquid inside the bottle. A deep, forest-green and rich earthy color palette dominates the scene. The atmosphere is clinical yet deeply organic and luxurious." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAohvSkdjZ6ah_H4DB3pKw6EhF2iVzuBIUMr59CYzNEp699pmH1oSe_owLAmf9aO5b6fag7In4M9EIyEaQiJNXkUH0j8BdBEOi3XAUrVlv1SzZb6UX59EDHxzVAzLoWiOBh87ePlvu-O1OszdebHqN6Zeu1VeLDflk-cTwNBDfEjqJCv9cbC3HwjwhZZgMRBdLBkvznDYErysnY4gP9ZS5larVlZ0e4m35fgIOW07ZFHJajMsYuWRtIEO4mdv7Y_T1zprUuelBfxW0');"></div>
+</div>
+<div class="flex items-center gap-3 mb-4">
+<span class="font-label-mono text-label-mono text-secondary tracking-widest uppercase">Botanicals</span>
+<span class="text-on-surface-variant/50 text-sm">•</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant">8 min read</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4 group-hover:text-primary transition-colors">Botanical Skincare Without the Noise</h3>
+<p class="font-body-base text-body-base text-on-surface-variant mb-6 flex-grow">
+                        Navigating the complex world of natural ingredients. We strip away the marketing jargon to focus on efficacious, plant-based compounds that actually support skin barrier function.
+                    </p>
+<span class="inline-flex items-center gap-2 font-label-mono text-label-mono text-primary group-hover:gap-4 transition-all">
+                        Read Article <span class="material-symbols-outlined text-sm">arrow_right_alt</span>
+</span>
+</article>
+<!-- Article Card 2 -->
+<article class="aurelia-veil p-6 md:p-10 rounded-2xl group cursor-pointer hover:border-primary/30 transition-colors flex flex-col h-full">
+<div class="relative h-[250px] md:h-[320px] rounded-xl overflow-hidden mb-8">
+<div class="absolute inset-0 bg-surface-container-high animate-pulse"></div> <!-- Placeholder for image -->
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="A serene, minimalist bathroom interior shot at dusk. A deep stone bathtub is partially filled with steaming water, surrounded by lit candles and branches of eucalyptus hanging from the dark tiled walls. The scene is illuminated only by the warm, flickering candlelight and a soft, dim ambient glow. The mood is incredibly tranquil, private, and restorative." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCIeDsA7NWhCzphBC-0erh9WFPfFF2pBd-_L98cEBYifwfjgcs5-r8BkiZzSQ5-yn4nd6O6mONRvvx1meU-mEXmtFtfA_Ki0IRThbMRDszbT4qYjXZjizBqD8FX0qltbQwoVF0DSD2rcAbyHbOEkxy3hFUL-36JaYws8eJB4iPlmq8eQ138g8IBIAA32cIE4VnXqOSfIVRoKD1whqS--c65PYy9GzkpYBRpe4HwK168G84dQfqhHE3Toe_aGyGyeIWhVh9Carm7p74');"></div>
+</div>
+<div class="flex items-center gap-3 mb-4">
+<span class="font-label-mono text-label-mono text-secondary tracking-widest uppercase">Sanctuary</span>
+<span class="text-on-surface-variant/50 text-sm">•</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant">4 min read</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4 group-hover:text-primary transition-colors">Forest Bathing Cues for the Home Bathroom</h3>
+<p class="font-body-base text-body-base text-on-surface-variant mb-6 flex-grow">
+                        Transforming your daily cleansing routine into a grounding experience. Learn how to introduce elements of Shinrin-yoku—woodland scents, steam, and low light—into your domestic sanctuary.
+                    </p>
+<span class="inline-flex items-center gap-2 font-label-mono text-label-mono text-primary group-hover:gap-4 transition-all">
+                        Read Article <span class="material-symbols-outlined text-sm">arrow_right_alt</span>
+</span>
+</article>
+</div>
+<!-- Load More -->
+<div class="mt-16 text-center">
+<button class="secondary-btn px-8 py-4 rounded-full font-label-mono text-label-mono tracking-widest uppercase">Load More Articles</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-section-gap-sm bg-surface-container-lowest border-t border-glass-border">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto text-sandstone font-label-mono text-label-mono">
+<div>
+<a class="font-headline-md text-headline-md text-primary mb-4 block" href="#">Aurelia Grove</a>
+<p>© 2024 Aurelia Grove Forest Sanctuary. All rights reserved.</p>
+</div>
+<div class="flex flex-col gap-3">
+<p>Location: Elderwood Ridge, PNW</p>
+<p>Hours: Dawn to Dusk</p>
+</div>
+<div class="flex flex-col gap-3 md:items-end">
+<a class="text-on-surface-variant hover:text-primary transition-colors ease-out duration-300" href="#">Instagram</a>
+<a class="text-primary transition-colors ease-out duration-300" href="#">Journal</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors ease-out duration-300" href="#">Privacy</a>
+</div>
+</div>
+</footer>
+</body></html>

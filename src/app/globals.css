@@ -1,16 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0d1711;
-  --foreground: #f5efe3;
+  --background: #0e150f;
+  --foreground: #dde5da;
   --card: rgba(245, 239, 227, 0.08);
-  --muted: rgba(245, 239, 227, 0.68);
+  --muted: #d0c5b5;
   --border: rgba(245, 239, 227, 0.16);
   --forest: #122319;
-  --moss: #6f8260;
-  --stone: #cbbf9d;
-  --clay: #b47b5b;
-  --gold: #d2ad65;
+  --moss: #b8cda6;
+  --stone: #f5efe3;
+  --clay: #ffc5a6;
+  --gold: #eecd8b;
+  --surface-lowest: #09100a;
+  --surface-low: #161d17;
+  --surface: #1a211b;
 }
 
 @theme inline {
@@ -24,6 +27,11 @@
   --color-stone: var(--stone);
   --color-clay: var(--clay);
   --color-gold: var(--gold);
+  --color-alabaster: #f5efe3;
+  --color-sandstone: #cbbf9d;
+  --color-surface-lowest: var(--surface-lowest);
+  --color-surface-low: var(--surface-low);
+  --color-surface: var(--surface);
   --font-sans: var(--font-geist-sans);
   --font-serif: var(--font-fraunces);
   --font-mono: var(--font-geist-mono);
@@ -35,6 +43,10 @@ body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 a,
 button,
 input,
@@ -44,17 +56,17 @@ textarea {
 
 .spa-bg {
   background:
-    radial-gradient(circle at 15% 10%, rgba(111, 130, 96, 0.28), transparent 28rem),
-    radial-gradient(circle at 85% 5%, rgba(210, 173, 101, 0.18), transparent 24rem),
-    linear-gradient(135deg, rgba(13, 23, 17, 0.96), rgba(18, 35, 25, 0.96)),
-    repeating-linear-gradient(90deg, rgba(245, 239, 227, 0.04) 0 1px, transparent 1px 80px);
+    radial-gradient(circle at 0% 0%, rgba(184, 205, 166, 0.13), transparent 36rem),
+    radial-gradient(circle at 100% 10%, rgba(238, 205, 139, 0.1), transparent 34rem),
+    radial-gradient(circle at 60% 80%, rgba(255, 197, 166, 0.06), transparent 30rem),
+    #0e150f;
 }
 
 .botanical-card {
   border: 1px solid var(--border);
-  background: linear-gradient(145deg, rgba(245, 239, 227, 0.1), rgba(245, 239, 227, 0.035));
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
-  backdrop-filter: blur(18px);
+  background: rgba(245, 239, 227, 0.08);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(24px);
 }
 
 .section-kicker {
@@ -70,17 +82,53 @@ textarea {
   background: linear-gradient(135deg, var(--gold), #eee0ac 48%, var(--moss));
   color: #111b13;
   font-weight: 700;
-  transition: transform 180ms ease, box-shadow 180ms ease;
+  transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 300ms ease;
 }
 
 .forest-button:hover {
-  box-shadow: 0 18px 45px rgba(210, 173, 101, 0.24);
-  transform: translateY(-1px);
+  box-shadow: 0 10px 20px -5px rgba(238, 205, 139, 0.4);
+  transform: translateY(-4px);
 }
 
 .leaf-orb {
-  background:
-    radial-gradient(circle at 30% 20%, rgba(245, 239, 227, 0.32), transparent 20%),
-    linear-gradient(145deg, rgba(111, 130, 96, 0.7), rgba(18, 35, 25, 0.9));
-  border-radius: 48% 52% 42% 58%;
+  background: radial-gradient(circle, rgba(238, 205, 139, 0.12), rgba(184, 205, 166, 0.08) 45%, transparent 72%);
+  border-radius: 9999px;
+  filter: blur(80px);
+}
+
+.image-veil {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background-color: rgba(18, 35, 25, 0.55);
+}
+
+.image-veil::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(14, 21, 15, 0.72), transparent 55%);
+  pointer-events: none;
+}
+
+.remote-art {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  transition: transform 700ms ease, filter 700ms ease;
+}
+
+.group:hover .remote-art {
+  transform: scale(1.08);
+}
+
+.slow-section {
+  padding-block: 80px;
+}
+
+@media (min-width: 768px) {
+  .slow-section {
+    padding-block: 120px;
+  }
 }
